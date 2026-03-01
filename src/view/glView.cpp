@@ -16,9 +16,9 @@ void initView(IRenderEngine *engine, GlView *view)
 {
     engine->init();
     view->initMainMenu();
-    view->initGameScene();
-    view->initGameOverScene();
-    view->initWinScene();
+    // view->initGameScene();
+    // view->initGameOverScene();
+    // view->initWinScene();
     engine->addScene(view->getMainMenu());
     engine->setEngineCallback(view->getGameController());
     view->setInitialized(true);
@@ -120,25 +120,34 @@ void GlView::initWinScene()
 
 void GlView::gameStateChanged(GameState game_state)
 {
+    win = nullptr;
+    mainMenu = nullptr;
+    gameOver = nullptr;
     engine->getScenes()->clear();
     if (game_state == IN_GAME)
     {
+        inGame = nullptr;
+        initGameScene();
         engine->addScene(inGame);
         //  glfwSetInputMode(engine->getWindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     }
     else if (game_state == MAIN_MENU)
     {
+        inGame = nullptr;
+        initMainMenu();
         engine->addScene(mainMenu);
         glfwSetInputMode(engine->getWindow(), GLFW_CURSOR, GLFW_CURSOR_NORMAL);
     }
     else if (game_state == GAME_OVER)
     {
+        initGameOverScene();
         engine->addScene(inGame);
         engine->addScene(gameOver);
         glfwSetInputMode(engine->getWindow(), GLFW_CURSOR, GLFW_CURSOR_NORMAL);
     }
     else if (game_state == WIN)
     {
+        initWinScene();
         engine->addScene(inGame);
         engine->addScene(win);
     }
@@ -179,5 +188,8 @@ void GlView::setHealth(int count)
 
 void GlView::setGrid(vector<vector<SEngine::Sprite> *> *grid)
 {
-    static_cast<SpriteGrid *>(inGame->scene_elements->at(2))->setGrid(grid);
+    if (inGame != nullptr)
+    {
+        static_cast<SpriteGrid *>(inGame->scene_elements->at(2))->setGrid(grid);
+    }
 }
