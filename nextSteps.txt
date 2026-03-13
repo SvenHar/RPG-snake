@@ -7,12 +7,12 @@
 - Fix sometimes rng gives a pair that is not allowed
 - NPCs dialog configurable
 - cmakeLists
-- Remove scenes when they are not used
-- Make scenes json
 - Quests only start counting their condition when they start
+- Localization
 
 Engine:
 - Dialogs
 - Layouts
 - Sound controller
 - Hide scene elements in scene and scenes in renderEngine
+- Make scenes persisted in files (json)
