@@ -53,7 +53,7 @@ void GlView::initMainMenu()
     int windowWidth, windowHeight;
     GLFWwindow *window = engine->getWindow();
     glfwGetWindowSize(window, &windowWidth, &windowHeight);
-    mainMenu = new Scene();
+    Scene *temp = new Scene();
     Button *first = new Button(windowWidth / 2 - 80, windowHeight / 2 - 30, windowWidth / 2 + 80, windowHeight / 2);
     first->text = "Begin game";
     first->callback = &inputEnter;
@@ -63,31 +63,33 @@ void GlView::initMainMenu()
     Button *third = new Button(windowWidth / 2 - 40, windowHeight / 2 + 200, windowWidth / 2 + 40, windowHeight / 2 + 230);
     third->text = "Exit";
     third->callback = &inputEscape;
-    mainMenu->scene_elements = new std::vector<SEngine::Element *>(1, first);
-    mainMenu->scene_elements->push_back(second);
-    mainMenu->scene_elements->push_back(third);
+    temp->scene_elements = new std::vector<SEngine::Element *>(1, first);
+    temp->scene_elements->push_back(second);
+    temp->scene_elements->push_back(third);
+    mainMenu = temp;
 }
 
 void GlView::initGameScene()
 {
     int windowWidth, windowHeight;
     glfwGetWindowSize(engine->getWindow(), &windowWidth, &windowHeight);
-    inGame = new Scene();
+    Scene *temp = new Scene();
     Text *scoreText = new Text(0, 0, 100, 20);
     scoreText->text = "Score: 0";
-    inGame->scene_elements = new std::vector<SEngine::Element *>(1, scoreText);
+    temp->scene_elements = new std::vector<SEngine::Element *>(1, scoreText);
     Image *background = new Image(windowWidth / 2 - 320, 80, windowWidth / 2 + 320, 720, ((std::string)RESOURCE_DIR).append("/textures/background.png").c_str(), SEngine::StretchMode::ORIGINAL);
-    inGame->scene_elements->push_back(background);
+    temp->scene_elements->push_back(background);
     std::string texturePath = ((std::string)RESOURCE_DIR).append("/textures/grid.png");
     SpriteGrid *spriteGrid = new SpriteGrid(windowWidth / 2 - 320, 80, 200, 100, texturePath, 0.125f);
     spriteGrid->setGrid(new vector<vector<SEngine::Sprite> *>());
-    inGame->scene_elements->push_back(spriteGrid);
+    temp->scene_elements->push_back(spriteGrid);
     Text *winConText = new Text(0, 20, 100, 40);
     winConText->text = "Win condition: ";
-    inGame->scene_elements->push_back(winConText);
+    temp->scene_elements->push_back(winConText);
     Text *healthText = new Text(windowWidth / 2 - 50, 0, windowWidth / 2 + 50, 20);
     healthText->text = "";
-    inGame->scene_elements->push_back(healthText);
+    temp->scene_elements->push_back(healthText);
+    inGame = temp;
 
     dialog = new Dialog(engine, "");
 }
@@ -96,26 +98,28 @@ void GlView::initGameOverScene()
 {
     int windowWidth, windowHeight;
     glfwGetWindowSize(engine->getWindow(), &windowWidth, &windowHeight);
-    gameOver = new Scene();
+    Scene *temp = new Scene();
     Text *gameOverText = new Text(windowWidth / 2 - 40, windowHeight / 2 - 20, windowWidth / 2 + 40, windowHeight / 2);
     gameOverText->text = "GAME OVER";
-    gameOver->scene_elements = new std::vector<SEngine::Element *>(1, gameOverText);
+    temp->scene_elements = new std::vector<SEngine::Element *>(1, gameOverText);
     Text *gameOverText2 = new Text(windowWidth / 2 - 40, windowHeight / 2 + 20, windowWidth / 2 + 40, windowHeight / 2 + 40);
     gameOverText2->text = "PRESS P TO RETURN TO MAIN MENU";
-    gameOver->scene_elements->push_back(gameOverText2);
+    temp->scene_elements->push_back(gameOverText2);
+    gameOver = temp;
 }
 
 void GlView::initWinScene()
 {
     int windowWidth, windowHeight;
     glfwGetWindowSize(engine->getWindow(), &windowWidth, &windowHeight);
-    win = new Scene();
+    Scene *temp = new Scene();
     Text *gameOverText = new Text(windowWidth / 2 - 40, windowHeight / 2 - 20, windowWidth / 2 + 40, windowHeight / 2);
     gameOverText->text = "YOU WON THIS LEVEL!";
-    win->scene_elements = new std::vector<SEngine::Element *>(1, gameOverText);
+    temp->scene_elements = new std::vector<SEngine::Element *>(1, gameOverText);
     Text *gameOverText2 = new Text(windowWidth / 2 - 40, windowHeight / 2 + 20, windowWidth / 2 + 40, windowHeight / 2 + 40);
     gameOverText2->text = "PRESS P TO GO TO THE NEXT LEVEL";
-    win->scene_elements->push_back(gameOverText2);
+    temp->scene_elements->push_back(gameOverText2);
+    win = temp;
 }
 
 void GlView::gameStateChanged(GameState game_state)
