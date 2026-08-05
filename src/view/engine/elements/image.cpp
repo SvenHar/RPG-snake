@@ -32,10 +32,10 @@ namespace SEngine
         float textureFractionWidth = computeTextureFraction(width, pos_x_top_left - pos_x_bottom_right);
         float textureFractionHeight = computeTextureFraction(height, pos_y_top_left - pos_y_bottom_right);
         vector<float> vertices = {
-            pos_x_top_left * 1.0f, pos_y_top_left * 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-            pos_x_top_left * 1.0f, pos_y_bottom_right * 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, textureFractionHeight,
-            pos_x_bottom_right * 1.0f, pos_y_top_left * 1.0f, 1.0f, 0.0f, 0.0f, textureFractionWidth, 0.0f,
-            pos_x_bottom_right * 1.0f, pos_y_bottom_right * 1.0f, 1.0f, 0.0f, 0.0f, textureFractionWidth, textureFractionHeight};
+            pos_x_top_left * 1.0f, pos_y_top_left * 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,
+            pos_x_top_left * 1.0f, pos_y_bottom_right * 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, textureFractionHeight,
+            pos_x_bottom_right * 1.0f, pos_y_top_left * 1.0f, 1.0f, 1.0f, 1.0f, textureFractionWidth, 0.0f,
+            pos_x_bottom_right * 1.0f, pos_y_bottom_right * 1.0f, 1.0f, 1.0f, 1.0f, textureFractionWidth, textureFractionHeight};
         vector<unsigned int> indices = {
             0, 1, 2,
             1, 2, 3};

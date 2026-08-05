@@ -26,22 +26,22 @@ namespace SEngine
     {
         vector<float> vertices = {
             // Left part of the button
-            pos_x_top_left * 1.0f, pos_y_top_left * 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-            pos_x_top_left * 1.0f, pos_y_bottom_right * 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f,
-            pos_x_top_left * 1.0f + 4, pos_y_top_left * 1.0f, 1.0f, 0.0f, 0.0f, 0.25f, 0.0f,
-            pos_x_top_left * 1.0f + 4, pos_y_bottom_right * 1.0f, 1.0f, 0.0f, 0.0f, 0.25f, 1.0f,
+            pos_x_top_left * 1.0f, pos_y_top_left * 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,
+            pos_x_top_left * 1.0f, pos_y_bottom_right * 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f,
+            pos_x_top_left * 1.0f + 4, pos_y_top_left * 1.0f, 1.0f, 1.0f, 1.0f, 0.25f, 0.0f,
+            pos_x_top_left * 1.0f + 4, pos_y_bottom_right * 1.0f, 1.0f, 1.0f, 1.0f, 0.25f, 1.0f,
 
             // Middle part of the button
-            pos_x_top_left * 1.0f + 4, pos_y_top_left * 1.0f, 1.0f, 0.0f, 0.0f, 0.25f, 0.0f,
-            pos_x_top_left * 1.0f + 4, pos_y_bottom_right * 1.0f, 1.0f, 0.0f, 0.0f, 0.25f, 1.0f,
-            pos_x_bottom_right * 1.0f - 4, pos_y_top_left * 1.0f, 1.0f, 0.0f, 0.0f, 0.75f, 0.0f,
-            pos_x_bottom_right * 1.0f - 4, pos_y_bottom_right * 1.0f, 1.0f, 0.0f, 0.0f, 0.75f, 1.0f,
+            pos_x_top_left * 1.0f + 4, pos_y_top_left * 1.0f, 1.0f, 1.0f, 1.0f, 0.25f, 0.0f,
+            pos_x_top_left * 1.0f + 4, pos_y_bottom_right * 1.0f, 1.0f, 1.0f, 1.0f, 0.25f, 1.0f,
+            pos_x_bottom_right * 1.0f - 4, pos_y_top_left * 1.0f, 1.0f, 1.0f, 1.0f, 0.75f, 0.0f,
+            pos_x_bottom_right * 1.0f - 4, pos_y_bottom_right * 1.0f, 1.0f, 1.0f, 1.0f, 0.75f, 1.0f,
 
             // Right part of the button
-            pos_x_bottom_right * 1.0f - 4, pos_y_top_left * 1.0f, 1.0f, 0.0f, 0.0f, 0.75f, 0.0f,
-            pos_x_bottom_right * 1.0f - 4, pos_y_bottom_right * 1.0f, 1.0f, 0.0f, 0.0f, 0.75f, 1.0f,
-            pos_x_bottom_right * 1.0f, pos_y_top_left * 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
-            pos_x_bottom_right * 1.0f, pos_y_bottom_right * 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f};
+            pos_x_bottom_right * 1.0f - 4, pos_y_top_left * 1.0f, 1.0f, 1.0f, 1.0f, 0.75f, 0.0f,
+            pos_x_bottom_right * 1.0f - 4, pos_y_bottom_right * 1.0f, 1.0f, 1.0f, 1.0f, 0.75f, 1.0f,
+            pos_x_bottom_right * 1.0f, pos_y_top_left * 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f,
+            pos_x_bottom_right * 1.0f, pos_y_bottom_right * 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f};
         vector<unsigned int> indices = {
             0, 1, 2,
             1, 2, 3,

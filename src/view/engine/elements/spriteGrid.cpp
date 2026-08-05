@@ -80,13 +80,12 @@ namespace SEngine
         {
             for (int j = 0; j < grid->at(i)->size(); j++)
             {
-                float c1 = 0.0f, c2 = 0.0f, c3 = 0.0f, tint = 0.0f;
+                float c1 = 1.0f, c2 = 1.0f, c3 = 1.0f;
                 if (highlightFocussedSprite && i == focussedSpriteY && j == focussedSpriteX)
                 {
                     c1 = 0.5;
                     c2 = 0.5;
                     c3 = 0.5;
-                    tint = 0.5f;
                 }
                 float texBaseX = grid->at(i)->at(j).texBaseX;
                 float texBaseY = grid->at(i)->at(j).texBaseY;
