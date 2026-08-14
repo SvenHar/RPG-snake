@@ -157,6 +157,16 @@ namespace SEngine
                     {
                         glBindTexture(GL_TEXTURE_2D, data->getTexture());
                         textureShader->use();
+                        GLuint backgroundColorLocation =
+                            glGetUniformLocation(textureShader->ID, "backgroundColor");
+
+                        glUniform4f(
+                            backgroundColorLocation,
+                            0.5f, // R
+                            0.5f, // G
+                            0.5f, // B
+                            1.0f  // A
+                        );
                     }
                     else
                     {
