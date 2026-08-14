@@ -168,7 +168,10 @@ void GlView::closeDialog()
 
 void GlView::setScore(int count)
 {
-    static_cast<Text *>(inGame->scene_elements->at(0))->text = "Score: " + std::to_string(count);
+    if (inGame != nullptr)
+    {
+        static_cast<Text *>(inGame->scene_elements->at(0))->text = "Score: " + std::to_string(count);
+    }
 }
 
 void GlView::setQuests(vector<Quest *> *quests)
@@ -182,12 +185,18 @@ void GlView::setQuests(vector<Quest *> *quests)
     {
         questNames += quest->getName() + "\n";
     }
-    static_cast<Text *>(inGame->scene_elements->at(3))->text = questNames;
+    if (inGame != nullptr)
+    {
+        static_cast<Text *>(inGame->scene_elements->at(3))->text = questNames;
+    }
 }
 
 void GlView::setHealth(int count)
 {
-    static_cast<Text *>(inGame->scene_elements->at(4))->text = "Health: " + std::to_string(count);
+    if (inGame != nullptr)
+    {
+        static_cast<Text *>(inGame->scene_elements->at(4))->text = "Health: " + std::to_string(count);
+    }
 }
 
 void GlView::setGrid(vector<vector<SEngine::Sprite> *> *grid)
